@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="icon" href="./assets/weather-news.png" type="image/icon type">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nerko+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Chart.js library -->
+</head>
+<body>
+    
+    <div class="wrapper">
+
+        <h1 style="font-size: 50px;">Weather App</h1>
+
+        <div class="tab-container">
+            <p class="tab" data-userWeather>Current Weather</p>
+            <p class="tab" data-searchWeather>Search Weather</p>
+        </div>
+
+        <div class="weather-container">
+
+            <!-- grant location container -->
+            <div class="sub-container grant-location-container">
+                <img src="./assets/location.png" width="80" height="80" loading="lazy">
+                <p>Grant Location Access</p>
+                <p>Allow Access to get weather Information</p>
+                <button class="btn" data-grantAccess>Grant Access</button>
+            </div>
+
+            <!-- search form -> form-container -->
+            <form class="form-container" data-searchForm>
+                <input placeholder="Search for City..." data-searchInput>
+                <button class="btn" type="submit">
+                    <img src="./assets/search.png" width="20" height="20" loading="lazy">
+                </button>
+            </form>
+
+            <!-- loading screen container -->
+            <div class="sub-container loading-container">
+                <img src="./assets/loading.gif" width="150" height="150">
+                <p>Loading</p>
+            </div>
+
+            <!-- show weather info -->
+            <div class="sub-container user-info-container">
+
+                <!-- city name and Flag -->
+                <div class="name">
+                    <p data-cityName></p>
+                    <img data-countryIcon>
+                </div>
+
+                <!-- weather description -->
+                <p data-weatherDesc></p>
+                <!-- weather Icon -->
+                <img data-weatherIcon>
+                <!-- temperature -->
+                <p data-temp></p>
+
+                <!-- 3 cards - parameters -->
+                <div class="parameter-container">
+
+                    <!-- card 1 -->
+                    <div class="parameter">
+                        <img src="./assets/wind.png">
+                        <p>Windspeed</p>
+                        <p data-windspeed></p>
+                    </div>
+
+                    <!-- card 2 -->
+                    <div class="parameter">
+                        <img src="./assets/humidity.png">
+                        <p>Humidity</p>
+                        <p data-humidity></p>
+                    </div>
+
+                    <!-- card 3 -->
+                    <div class="parameter">
+                        <img src="./assets/cloud.png">
+                        <p>Clouds</p>
+                        <p data-cloudiness></p>
+                    </div>
+                     <!-- new section for pollution rate and quality of life -->
+                   <div class="parameter-container">
+
+                    <!-- card 4 (Pollution Rate) -->
+                    <div class="parameter">
+                        <img src="./assets/pollution.png" alt="Pollution Icon">
+                        <p>Pollution Rate</p>
+                        <p data-pollution></p>
+                    </div>
+
+                    <!-- card 5 (Quality of Life) -->
+                    <div class="parameter">
+                        <img src="./assets/quality.png" alt="Quality of Life Icon">
+                        <p>Quality of Life</p>
+                        <p data-quality></p>
+                    </div>
+
+                </div>
+                <!-- disaster alert container -->
+                <div class="disaster-alert" style="display: none; color: red; font-weight: bold;"></div>
+                <!-- temperature chart -->
+                <div class="chart-container">
+                    <h2>Current Temperature:</h2>
+                    <canvas id="temperatureChart" width="400" height="200"></canvas>
+                </div>
+
+                
+
+            </div>
+
+        </div>
+
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
